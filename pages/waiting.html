@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/logo/logo.png" type="image/x-icon">
+  <title>HypeKicks - Activate Your Account</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/components/notification.css">
+  <link rel="stylesheet" href="../styles/components/loading.css">
+  <link rel="stylesheet" href="../styles/pages/waiting.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="../assets/logo/logo_cropped_3-2.png" alt="HypeKicks Logo">
+    </div>
+    
+    <h2>Check Your Email</h2>
+    
+    <p>We've sent an activation link to <span class="email-info" id="user-email">your email address</span>.</p>
+    
+    <p>Please check your inbox and click the activation link to complete your registration. The link will expire in 1 hour.</p>
+    
+    <p>
+      Didn't receive the email? Check your spam folder or 
+      <span id="resend-container">
+        <a href="../database/resend-activation.php" id="resend-link" class="btn btn-link" onclick="startResendTimer(60); showLoadingModal();">click here to resend</a>
+      </span>.
+    </p>
+    
+    <a href="getstarted.html" class="btn btn-primary">Back to Login</a>
+  </div>
+
+  <div class="loading-modal">
+    <div class="loading-indicator">
+      <div class="loading-dots-container">
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-container"></div>
+  <div class="notification-templates">
+     <template id="notif-success-template">
+        <div class="notification success">
+          <div class="notification-icon">
+            <img src="../assets/icon/checkbox-circle-line.png" alt="Success">
+          </div>
+          <div class="notification-content">
+            <span class="notification-text"></span>
+          </div>
+          <div class="notification-close">
+            <img src="../assets/icon/close-line.png" alt="Close">
+          </div>
+          <div class="notification-progress-bar"></div>
+        </div>
+      </template>
+      <template id="notif-error-template">
+        <div class="notification error">
+            <div class="notification-icon">
+                <img src="../assets/icon/close-circle-line.png" alt="Error">
+            </div>
+            <div class="notification-content">
+                <span class="notification-text"></span>
+            </div>
+            <div class="notification-close">
+                <img src="../assets/icon/close-line.png" alt="Close">
+            </div>
+            <div class="notification-progress-bar"></div>
+        </div>
+    </template>
+    <template id="notif-warning-template">
+        <div class="notification warning">
+            <div class="notification-icon">
+                <img src="../assets/icon/error-warning-line.png" alt="Warning">
+            </div>
+            <div class="notification-content">
+                <span class="notification-text"></span>
+            </div>
+            <div class="notification-close">
+                <img src="../assets/icon/close-line.png" alt="Close">
+            </div>
+            <div class="notification-progress-bar"></div>
+        </div>
+    </template>
+    <template id="notif-info-template">
+        <div class="notification info">
+            <div class="notification-icon">
+                <img src="../assets/icon/information-line.png" alt="Info">
+            </div>
+            <div class="notification-content">
+                <span class="notification-text"></span>
+            </div>
+            <div class="notification-close">
+                <img src="../assets/icon/close-line.png" alt="Close">
+            </div>
+            <div class="notification-progress-bar"></div>
+        </div>
+    </template>
+  </div>
+  
+  <script src="../scripts/core/notification.js"></script>
+  <script src="../scripts/waiting.js"></script>
+</body>
+</html>

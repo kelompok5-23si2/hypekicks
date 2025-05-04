@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/logo/logo.png" type="image/x-icon">
+  <title>HypeKicks - Get Started</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/theme.css">
+  <link rel="stylesheet" href="../styles/components/notification.css">
+  <link rel="stylesheet" href="../styles/components/loading.css">
+  <link rel="stylesheet" href="../styles/components/buttons.css">
+  <link rel="stylesheet" href="../styles/pages/getstarted.css">
+</head>
+<body>
+  <main class="auth-container">
+    <div class="auth-panel">
+      <div class="auth-logo-container">
+        <img src="../assets/icon/arrow-left-s-line.png" onclick="window.location.href='landing.php'">
+        <div class="logo">
+          <a href="landing.php">
+            <img src="../assets/logo/logo_cropped_3-2.png" alt="HypeKicks Logo" class="logo-image">
+          </a>
+          <a style="text-decoration: none;" href="landing.php">
+            <h2>HypeKicks</h2>
+          </a>
+        </div>
+      </div>
+      <div class="auth-content" id="dynamic-container"></div>
+      <div class="legal-terms">
+        <p>By signing in or creating an account, you acknowledge that you have read and understood our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. You also agree to receive email notifications about your account and orders.</p>
+      </div>
+    </div>
+    <div class="promo-panel">
+      <img src="../assets/promotion_image/pexels-amar-9993285.jpg" alt="Promotional image">
+    </div>
+  </main>
+
+  <template id="signin-template">
+    <div id="auth-header">
+      <h1>Welcome Back!</h1>
+      <p>We are excited to have you back, please enter your details.</p>
+    </div>
+    <div class="auth-switcher">
+      <button id="choose-signin" class="btn btn-outline auth-switch-btn active" onclick="loadContent('signin')">Sign In</button>
+      <button id="choose-signup" class="btn btn-outline auth-switch-btn" onclick="loadContent('signup')">Sign Up</button>
+    </div>
+
+    <form action="../database/registration.php" method="post" onsubmit="return validateSignin()" class="auth-form">
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <img src="../assets/icon/mail-line.png" alt="Email Icon" class="form-icon">
+        <input type="email" id="email" name="email" class="form-input" placeholder="enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="signin-password" class="form-label">Password</label>
+        <img src="../assets/icon/lock-2-line.png" alt="Password Icon" class="form-icon">
+        <img id="signin-password-icon" src="../assets/icon/eye-fill.png" class="form-icon toggle-password" onclick="togglePasswordVisibility('signin-password', 'signin-password-icon')">
+        <input type="password" id="signin-password" name="password" class="form-input" placeholder="enter your password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-continue" name="signin">Sign In</button>
+    </form>
+  </template>
+
+  <template id="signup-template">
+    <div id="auth-header">
+      <h1>Get Started!</h1>
+      <p>Welcome to HypeKicks! We are excited to have you on board.</p>
+    </div>
+    <div class="auth-switcher">
+      <button id="choose-signin" class="auth-switch-btn" onclick="loadContent('signin')">Sign In</button>
+      <button id="choose-signup" class="auth-switch-btn active" onclick="loadContent('signup')">Sign Up</button>
+    </div>
+
+    <form action="../database/registration.php" method="post" onsubmit="return validateSignup()" class="auth-form">
+      <div class="form-group">
+        <label for="birthdate" class="form-label">Birth Date</label>
+        <input type="date" id="birthdate" name="birth_date" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="fullname" class="form-label">Full Name</label>
+        <img src="../assets/icon/user-3-line.png" class="form-icon">
+        <input type="text" id="fullname" name="full_name" class="form-input" placeholder="enter your name" required onkeypress="
+          const key = event.key.toLowerCase();
+          const isLetter = (key >= 'a' && key <= 'z');
+          if (!isLetter && key != ' ') {
+            event.preventDefault();
+          }
+        ">
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <img src="../assets/icon/mail-line.png" alt="Email Icon" class="form-icon">
+        <input type="email" id="email" name="email" class="form-input" placeholder="enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-password" class="form-label">Password</label>
+        <img src="../assets/icon/lock-2-line.png" alt="Password Icon" class="form-icon">
+        <img id="signup-password-icon" src="../assets/icon/eye-fill.png" class="form-icon toggle-password" onclick="togglePasswordVisibility('signup-password', 'signup-password-icon')">
+        <input type="password" id="signup-password" name="password" class="form-input" placeholder="enter your password" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+        <img src="../assets/icon/lock-2-line.png" alt="Password Icon" class="form-icon">
+        <img id="signup-confirm-password-icon" src="../assets/icon/eye-fill.png" class="form-icon toggle-password" onclick="togglePasswordVisibility('signup-confirm-password', 'signup-confirm-password-icon')">
+        <input type="password" id="signup-confirm-password" name="confirm-password" class="form-input" placeholder="confirm your password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-continue" name="signup">Sign Up</button>
+    </form>
+  </template>
+
+  <div class="loading-modal">
+    <div class="loading-indicator">
+      <div class="loading-dots-container">
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-container"></div>
+  <div class="notification-templates">
+     <template id="notif-success-template">
+        <div class="notification success">
+          <div class="notification-icon">
+            <img src="../assets/icon/checkbox-circle-line.png" alt="Success">
+          </div>
+          <div class="notification-content">
+            <span class="notification-text"></span>
+          </div>
+          <div class="notification-close">
+            <img src="../assets/icon/close-line.png" alt="Close">
+          </div>
+          <div class="notification-progress-bar"></div>
+        </div>
+      </template>
+      <template id="notif-error-template">
+        <div class="notification error">
+            <div class="notification-icon">
+                <img src="../assets/icon/close-circle-line.png" alt="Error">
+            </div>
+            <div class="notification-content">
+                <span class="notification-text"></span>
+            </div>
+            <div class="notification-close">
+                <img src="../assets/icon/close-line.png" alt="Close">
+            </div>
+            <div class="notification-progress-bar"></div>
+        </div>
+    </template>
+    <template id="notif-warning-template">
+        <div class="notification warning">
+            <div class="notification-icon">
+                <img src="../assets/icon/error-warning-line.png" alt="Warning">
+            </div>
+            <div class="notification-content">
+                <span class="notification-text"></span>
+            </div>
+            <div class="notification-close">
+                <img src="../assets/icon/close-line.png" alt="Close">
+            </div>
+            <div class="notification-progress-bar"></div>
+        </div>
+    </template>
+    <template id="notif-info-template">
+        <div class="notification info">
+            <div class="notification-icon">
+                <img src="../assets/icon/information-line.png" alt="Info">
+            </div>
+            <div class="notification-content">
+                <span class="notification-text"></span>
+            </div>
+            <div class="notification-close">
+                <img src="../assets/icon/close-line.png" alt="Close">
+            </div>
+            <div class="notification-progress-bar"></div>
+        </div>
+    </template>
+  </div>
+
+  <script src="../scripts/core/notification.js"></script>
+  <script src="../scripts/getstarted.js"></script>
+</body>
+</html>
