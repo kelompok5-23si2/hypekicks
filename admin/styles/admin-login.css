@@ -1,0 +1,137 @@
+body {
+  font-family: var(--font-family);
+  background-color: #f8fafc;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-login-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem;
+}
+
+.login-form-container {
+  background-color: white;
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.login-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.login-logo img {
+  width: clamp(80px, 10vw, 100px);
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.login-logo h1 {
+  font-size: var(--font-size-large);
+  margin: 0;
+  color: var(--color-text);
+}
+
+.login-error {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+  border-radius: var(--border-radius-md);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: var(--font-size-small);
+  text-align: center;
+}
+
+.admin-login-form {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle-password img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.toggle-password:hover img {
+  opacity: 0.8;
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.login-footer {
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+.login-footer a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: var(--font-size-small);
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .admin-login-container {
+    padding: 1rem;
+  }
+  
+  .login-form-container {
+    padding: 1.5rem;
+  }
+}
