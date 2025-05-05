@@ -1,0 +1,185 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.btn-secondary {
+  background-color: var(--color-gray-light);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gray);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.btn-link {
+  background: none;
+  color: var(--color-accent);
+  padding: 0;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-size-small);
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-semi-large);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.btn-icon img, 
+.btn-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.btn-animation {
+  position: relative;
+  overflow: hidden;
+  transition: color var(--transition-normal);
+  z-index: 1;
+  color: var(--button-color, var(--color-text));
+  border: 1px solid var(--button-color, var(--color-text));
+}
+
+.btn-animation:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--button-animation-color, var(--color-accent));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--transition-normal) ease-out;
+}
+
+.btn-animation:hover {
+  color: var(--button-animation-text-color, white);
+}
+
+.btn-animation:hover:before {
+  transform: scaleX(1);
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 1em;
+  background-color: var(--color-text);
+  color: white;
+  border-radius: var(--border-radius-full);
+  font-weight: bold;
+  transition: transform var(--transition-normal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.btn-checkout:hover {
+  transform: scale(1.02);
+}
+
+.btn-checkout img {
+  width: var(--font-size-semi-large);
+}
+
+.button-animation {
+  --button-color: white;
+  --button-animation-color: rgb(10, 25, 30);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--button-color);
+  z-index: 1;
+  display: block;
+ }
+ 
+ .button-animation::before, .button-animation::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--button-color);
+  transition: 1s ease;
+ }
+ 
+ .button-animation::before {
+  top: -1em;
+  left: -1em;
+ }
+ 
+ .button-animation::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+ }
+ 
+ .button-animation:hover::before, .button-animation:hover::after {
+  height: 500px;
+  width: 500px;
+ }
+ 
+ .button-animation:hover {
+  color: var(--button-animation-color);
+ }
+ 
+ .button-animation:active {
+  filter: brightness(0.7);
+ }

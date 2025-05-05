@@ -1,0 +1,145 @@
+.auth-container {
+  display: flex;
+  height: 100vh;
+}
+
+.auth-panel {
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-panel {
+  width: 50%;
+  background-color: var(--color-accent);
+  overflow: hidden;
+}
+
+.promo-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.logo-image {
+  height: 50px;
+}
+
+.auth-content {
+  flex: 1;
+}
+
+.legal-terms {
+  font-size: var(--font-size-small);
+  color: var(--color-text-semi-transparent);
+  margin-top: 2rem;
+}
+
+.legal-terms a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.auth-header h1 {
+  font-size: var(--font-size-large);
+  margin-bottom: 0.5rem;
+}
+
+.auth-switcher {
+  display: flex;
+  margin: 1.5rem 0;
+}
+
+.auth-switch-btn {
+  flex: 1;
+  padding: 0.8rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--color-text-semi-transparent);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.auth-switch-btn.active {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.auth-form {
+  margin-top: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 2.5rem;
+  border: 1px solid var(--color-text-semi-transparent);
+  border-radius: 8px;
+  font-size: var(--font-size-base);
+}
+
+.form-icon {
+  position: absolute;
+  left: 0.8rem;
+  bottom: 0.8rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.toggle-password {
+  left: auto;
+  right: 0.8rem;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-accent-dark);
+}
+
+@media screen and (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+  }
+  
+  .auth-panel {
+    width: 100%;
+    order: 2;
+  }
+  
+  .promo-panel {
+    width: 100%;
+    height: 30vh;
+    order: 1;
+  }
+}

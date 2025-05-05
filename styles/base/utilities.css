@@ -1,0 +1,147 @@
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-semi-bold {
+  font-weight: 600;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-small {
+  font-size: var(--font-size-small);
+}
+
+.text-base {
+  font-size: var(--font-size-base);
+}
+
+.text-large {
+  font-size: var(--font-size-large);
+}
+
+.text-xl {
+  font-size: var(--font-size-extra-large);
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.ml-1 {
+  margin-left: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 1rem;
+}
+
+.mr-1 {
+  margin-right: 0.5rem;
+}
+
+.mr-2 {
+  margin-right: 1rem;
+}
+
+.p-1 {
+  padding: 0.5rem;
+}
+
+.p-2 {
+  padding: 1rem;
+}
+
+.p-3 {
+  padding: 1.5rem;
+}
+
+.p-4 {
+  padding: 2rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
